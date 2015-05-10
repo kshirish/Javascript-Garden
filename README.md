@@ -1,7 +1,9 @@
-Javascript-Garden
+Javascript Garden
 =================
 
-This is just a bunch of snippets from 
-    https://bonsaiden.github.io/JavaScript-Garden/
-    https://developer.mozilla.org
-that might help you to learn the basics of Javascript.
+This is just a bunch of snippets accumulated from here and there, that might help you improving basics. 
+
+1.  https://bonsaiden.github.io/JavaScript-Garden/
+2.  https://developer.mozilla.org
+3.  Javascript - The Good Parts By Doglous Crockford
+
