@@ -11,6 +11,12 @@
 ```
 
 ## What's the catch here
+- Check the type of *status.json*
+![jsonp](https://cloud.githubusercontent.com/assets/5382293/7960316/4fc0c1c0-0a1d-11e5-9b8f-8d268966baea.PNG)
+
+- Content of *status.json* looks like JSON but it is interpreted like a script(similar to jQuery or any other library) by the browser.
+![response](https://cloud.githubusercontent.com/assets/5382293/7960317/4fc3a3fe-0a1d-11e5-8fc2-832531b78248.PNG)
+
 So usually, when we make any AJAX call in same domain for response (i.e. JSON, XML etc), it counts as an xhr call. But in case of different domain, it gets downloaded in the form of a document which our browser tries to evaluate, interpret the raw JSON data as a block, and throw a syntax error. Even if the data were interpreted as a JavaScript object literal, it could not be accessed by JavaScript running in the browser, since without a variable assignment, object literals are inaccessible.
 
 ## Enough, Let's talk code !
