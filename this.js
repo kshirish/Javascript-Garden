@@ -1,19 +1,19 @@
 this; // refers to Window object
 
 function Foo(){}
-Foo.bar = function(){
+Foo.bar = function() {
     console.log(this);  // refers to Foo
-    function test(){
+    function test() {
         console.log();  //refers to Window
     }
     test();
 }
 
-var Foo =   {
-              bar: function(){
-                     console.log(this);
-                   }
-            };
+var Foo = {
+  bar: function() {
+    console.log(this);
+  }
+};
             
 Foo.bar();  // this will refer to Foo object
 var test = Foo.bar;
@@ -36,8 +36,8 @@ o = new Foo();
 console.log(o.bar); // logs 38
 
 // call usage
-function add(c, d){
-    return this.a + this.b + c + d;
+function add(c, d) {
+  return this.a + this.b + c + d;
 }
 
 var obj = {a:3, b:4};
@@ -47,7 +47,7 @@ add.call(obj, 5, 2);    // this in add function will refer to 'obj'
 add.apply(obj, [5, 2]);    // this in add function will refer to 'obj'
 
 //bind usage
-function f(){
+function f() {
   return this.a;
 }
 

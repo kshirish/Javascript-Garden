@@ -188,7 +188,7 @@ var add_the_handlers = function (nodes) {
 // the second way
 var add_the_handlers = function (nodes) {
 	var i;
-	[].map.call(nodes, (function(value,index){
+	[].map.call(nodes, (function(value,index) {
        value.onclick = function (e) {	
 			alert(index);	
 	   }; 
@@ -196,7 +196,7 @@ var add_the_handlers = function (nodes) {
 };
 
 // Prototypical Inheritance
-// __proto__ of instance will always point towards
+// __proto__ of an instance will always point towards
 // prototype of its Creator/Class
 
 var t = function() {};
@@ -214,7 +214,14 @@ Function.prototype.new = function ( ) {
 
 // Inherit
 Function.prototype.inherits = function (Parent) {
-	this.prototype = new Parent( );
+	var p = new Parent( );
+
+    for(var i in p) {
+        if(p.hasOwnProperty(i)) {
+            this.prototype[i] = p[i];
+        }
+    }
+
 	return this;
 }
 
@@ -230,7 +237,7 @@ var adult = Person.new('Ray');	//	Object {name: "Ray", age: 18}
 function Validator() {
 	var secret = {
 		username: 'Ray',
-		password: '$$Weak$$'
+		password: 'Strong'
 	};
 
 	return {
@@ -246,16 +253,16 @@ Validator().signIn('Ray','$$Weak$$');
 // Sad but True
 
 function A(){}
-var a = new A()
-a.constructor	// function A(){}
 
-A.constructor	// function Function() { [native code] }
+var a = new A()
+a.constructor	        // function A(){}
+A.prototype.constructor // function A(){}
+A.constructor	        // function Function() { [native code] }
 
 function B(){}
+
 B.prototype.constructor // function B(){}
-
 B.prototype = new A()
-
 B.prototype.constructor	// function A(){}
 B.constructor	// function Function() { [native code] }
 
@@ -330,6 +337,7 @@ var arr = ['a','aa']
 obj.propertyIsEnumerable('length')	// true
 arr.propertyIsEnumerable('length')	// false
 
+arr instanceof Object;  // true
 arr instanceof Array;	// true
 obj instanceof Array;	// false
 
@@ -348,6 +356,29 @@ var add = function(a,b){return a+b;}
 var multiply = function(a,b){return a*b;}
 arr.myReduce(add,0);		// 15
 arr.myReduce(multiply,1);	// 120
+
+// The `__proto__` game
+
+var Animal = function(type) { this.type = type; };
+Animal.prototype.isScary = function() { return this.type === 'Snake' };
+
+var Person = function(city) { this.location = city; };
+Person.prototype = new Animal();
+
+var Man = function() { this.gender = 'M'; };
+Man.prototype = new Person();
+var m = new Man()
+
+m instanceof Man        // true
+m instanceof Person     // true
+m instanceof Animal     // true
+
+m.constructor
+
+m.__proto__
+m.__proto__.__proto__
+m.__proto__.__proto__.__proto__
+m.__proto__.__proto__.__proto__.__proto__
 
 //**	I happily skipped the RegEX CHAPTER		**//
 //**		And The AWFUL Parts as Well			**//

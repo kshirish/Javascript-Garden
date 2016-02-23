@@ -5,7 +5,7 @@
 const foo = 1;
 let bar = foo;
 
-bar = 9;
+bar = 9;		// here, bar re-aligned it's pointer from `foo` to 9
 
 console.log(foo, bar); // => 1, 9
 
@@ -71,7 +71,7 @@ const [first, second] = arr; // first: 1, second: 2
 
 function processInput(input) {
 
-	let left = 11,
+	const left = 11,
 		top = 13,
 		right = 12,
 		bottom = 14;
@@ -115,15 +115,15 @@ if (currentUser) {
 // Dot (.) and subscript [] notation
 const luke = {
   jedi: true,
-  age: 28,
+  age: 28
 };
 
 // use subscript notation
-const num = 28;
-const age = luke[num];
+const name = 'jedi';
+const isJedi = luke[name];
 
 // use dot notation 
-const isJedi = luke.jedi;
+const age = luke.age;
 
 // one `const` per declaration
 // bad

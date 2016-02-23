@@ -32,37 +32,20 @@ for(var i = 0; i < 10; i++) {
 }
 
 // Contructors
-function Foo(){
+function Foo() {
     this.bar  = 55;     // no explicit return
 }
 
 new Foo();      // 'this' will be returned
 
-function Foo(){
+function Foo() {
     return 55;          // explicit return of a non-object
 }
 
 new Foo();          // new object will be returned
 
-function Foo(){
+function Foo() {
     return {bar : 55}       // explicit return of an object
 }
 
 new Foo();          // {bar: 55} will be returned
-
-
-//factories
-function Person() {
-    var obj = {};   
-    obj.name = 'Gaurav';
-
-    var age = 21;
-    obj.setName = function(name) {
-        this.name = name;
-    }
-
-    obj.getAge = function() {
-        return age;
-    }
-    return obj;
-}

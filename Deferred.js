@@ -6,11 +6,11 @@
 
     var Deferred = function (beforeStart) {
 
-        var status = 'pending',
-            doneFuncs = [],
-            failFuncs = [],
-            progressFuncs = [],
-            resultArgs;
+        var status = 'pending';
+        var doneFuncs = [];
+        var failFuncs = [];
+        var progressFuncs = [];
+        var resultArgs;
 
         // promise object only exposes the methods to attach callbacks furthermore
         // or to determine the state of a promise   
@@ -89,7 +89,7 @@
                     if( isArray(progressCallback) ) {   // if argument is an Array
 
                         progressCallback.map(function(fun) {
-
+f
                             // immediately call the function if the promise has been resolved
                             if (status === 'pending') {
                                 fun(self, resultArgs);
@@ -198,6 +198,7 @@
             }
         };
 
+        // extending promise functions into deferred object
         var deferObj = promise.promise(deferred);
 
         beforeStart && beforeStart.call(deferObj, deferObj)
