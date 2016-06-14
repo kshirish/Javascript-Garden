@@ -1,0 +1,28 @@
+{
+  "name": "javascript-garden",
+  "version": "1.0.0",
+  "description": "basics of javascript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kshirish/Javascript-Garden.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "kshirish <kisleyshirish25@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kshirish/Javascript-Garden/issues"
+  },
+  "homepage": "https://github.com/kshirish/Javascript-Garden#readme",
+  "dependencies": {
+    "mocha": "^2.5.3"
+  }
+}
